@@ -59,12 +59,13 @@ Thumbs.db
 
 # Docker
 .dockerignore
-*.dockerfile
-*.docker-compose.yml
+#*.dockerfile
+#*.docker-compose.yml
 
 # Vite-specific
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+node_modules/.vite
 
 # Package managers
 npm-debug.log
