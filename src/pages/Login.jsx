@@ -27,7 +27,7 @@ const Login = () => {
             });
             console.log('Login successful:', response.data);
             localStorage.setItem('user', JSON.stringify(response.data));
-            navigate('/profile');
+            navigate('/dashboard');
         } catch (err) {
             console.error('Login failed:', err);
             setError(err.response?.data || 'An error occurred during login');
@@ -54,7 +54,7 @@ const Login = () => {
         <div className="flex min-h-screen flex-col md:flex-row">
             <div className="md:w-1/2 h-64 md:h-auto bg-cover bg-center" style={{ backgroundImage: 'url(study2.jpg)' }}>
                 <div className="flex items-center justify-center h-full">
-                    <h1 className="text-4xl md:text-5xl font-bold gradient-text">StudyHub</h1>
+                    {/*<h1 className="text-4xl md:text-5xl font-bold gradient-text">StudyHub</h1>*/}
                 </div>
             </div>
             <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-6">
