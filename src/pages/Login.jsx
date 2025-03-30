@@ -13,6 +13,7 @@ const Login = () => {
         setError('');
 
         try {
+            // We use port 8080 for the Dockerized backend and port 8081 for the local backend (temporarily).
             const response = await axios.post('http://localhost:8080/api/users/login', {
                 username,
                 password,
