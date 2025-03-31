@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { buttonStyles } from '../utils/styles';
 
 const Profile = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const navigate = useNavigate();
     const { theme } = useSelector((state) => state.theme);
+    const [profilePic, setProfilePic] = useState('/profile-placeholder.jpg');
 
     if (!user) {
         navigate('/login');
@@ -17,18 +19,38 @@ const Profile = () => {
         navigate('/login');
     };
 
-    const buttonStyles = {
-        light: 'bg-light-accent hover:bg-gray-600 text-light-text',
-        dark: 'bg-dark-accent hover:bg-purple-700 text-dark-text',
-        ocean: 'bg-ocean-accent hover:bg-blue-600 text-ocean-text',
-        forest: 'bg-forest-accent hover:bg-green-700 text-forest-text',
-        sunset: 'bg-sunset-accent hover:bg-orange-600 text-sunset-text',
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setProfilePic(reader.result);
+                // Optionally save to backend or localStorage here
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center p-4 md:p-6">
             <div className={`w-full max-w-md p-6 md:p-8 rounded-lg shadow-xl ${theme === 'light' ? 'bg-white' : 'bg-opacity-20 bg-gray-900'}`}>
                 <h2 className="text-2xl md:text-3xl font-bold text-center gradient-text mb-6">User Profile</h2>
+                <div className="flex flex-col items-center mb-6">
+                    <img
+                        src={profilePic}
+                        alt="Profile"
+                        className="w-24 h-24 rounded-full object-cover mb-4"
+                    />
+                    <label className="cursor-pointer text-sm text-purple-500 hover:underline">
+                        Edit Picture
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="hidden"
+                        />
+                    </label>
+                </div>
                 <div className="space-y-4 text-sm md:text-base">
                     <p><strong>Username:</strong> {user.username}</p>
                     <p><strong>Email:</strong> {user.email}</p>

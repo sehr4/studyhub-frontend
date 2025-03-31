@@ -18,3 +18,21 @@
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
+
+.icon-wrapper svg {
+  stroke: var(--icon-color) !important; /* Override Lucide's currentColor and external rules */
+}
+
+.theme-switcher-login-signup {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 40;
+}
+
+@media (min-width: 768px) {
+  .theme-switcher-login-signup {
+    top: 2rem;
+    right: 2rem;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setTheme } from '../store/themeSlice';
+import { themeConfig } from '../themeConfig';
 
 const themes = [
     { name: 'light', label: 'Light ☀️' },
@@ -10,16 +11,17 @@ const themes = [
     { name: 'sunset', label: 'Sunset 🌅' },
 ];
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ className }) => {
     const { theme } = useSelector((state) => state.theme);
     const dispatch = useDispatch();
+    const { bg, text, border } = themeConfig[theme];
 
     return (
-        <div className="fixed top-2 right-2 md:top-4 md:right-4 z-50">
+        <div className={className || 'fixed top-20 md:top-20 right-2 md:right-4 z-40'}>
             <select
                 value={theme}
                 onChange={(e) => dispatch(setTheme(e.target.value))}
-                className="p-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm md:text-base"
+                className={`p-2 rounded-md border ${bg} ${text} ${border} focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm md:text-base`}
             >
                 {themes.map((t) => (
                     <option key={t.name} value={t.name}>

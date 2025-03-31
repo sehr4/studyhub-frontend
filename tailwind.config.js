@@ -16,26 +16,26 @@ export default {
       colors: {
         'gradient-start': '#ea00ff',
         'gradient-end': '#03d5ff',
-        // Light theme: Clean and bright
-        'light-bg': '#f9fafb', // Softer off-white
-        'light-text': '#111827', // Darker gray for readability
-        'light-accent': '#4b5563', // Neutral gray for buttons
-        // Dark theme: Rich and legible
-        'dark-bg': '#1f2937', // Darker gray-blue (better contrast than radial gradient alone)
-        'dark-text': '#f3f4f6', // Light gray for text
-        'dark-accent': '#8b5cf6', // Vibrant purple for buttons
-        // Ocean theme: Calm and aquatic
+        // Light: Clean, high contrast
+        'light-bg': '#e5e7eb', // Gray-200
+        'light-text': '#111827', // Gray-900, dark text
+        'light-accent': '#4b5563', // Gray-600, darker buttons
+        // Dark: Deep and crisp
+        'dark-bg': '#111827', // Gray-900, darker
+        'dark-text': '#f9fafb', // Gray-50, bright text
+        'dark-accent': '#a78bfa', // Softer purple
+        // Ocean: Cool and vibrant
         'ocean-bg': '#1e3a8a', // Deep blue
-        'ocean-text': '#e0f2fe', // Light sky blue
-        'ocean-accent': '#60a5fa', // Bright blue for buttons
-        // Forest theme: Earthy and natural
-        'forest-bg': '#14532d', // Deep green
-        'forest-text': '#ecfccb', // Pale lime for readability
-        'forest-accent': '#84cc16', // Fresh green for buttons
-        // Sunset theme: Warm and inviting
-        'sunset-bg': '#7c2d12', // Rich terracotta
-        'sunset-text': '#ffedd5', // Soft peach for text
-        'sunset-accent': '#fb923c', // Warm orange for buttons
+        'ocean-text': '#dbeafe', // Light blue
+        'ocean-accent': '#3b82f6', // Bright blue
+        // Forest: Natural and bold
+        'forest-bg': '#14532d', // Dark green
+        'forest-text': '#d9f99d', // Pale lime
+        'forest-accent': '#65a30d', // Vivid green
+        // Sunset: Warm and rich
+        'sunset-bg': '#7c2d12', // Terracotta
+        'sunset-text': '#ffedd5', // Soft peach
+        'sunset-accent': '#ea580c', // Bold orange
       },
     },
   },

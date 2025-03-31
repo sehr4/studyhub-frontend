@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Eye, EyeOff } from 'lucide-react';
+import { inputStyles, buttonStyles } from '../utils/styles';
+import { API_BASE_URL } from '../config';
 
 const Login = () => {
     const [formData, setFormData] = useState({ username: '', password: '' });
@@ -21,7 +23,7 @@ const Login = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('http://localhost:8080/api/users/login', {
+            const response = await axios.post(`${API_BASE_URL}/login`, {
                 username: formData.username,
                 password: formData.password,
             });
@@ -34,29 +36,9 @@ const Login = () => {
         }
     };
 
-    const inputStyles = {
-        light: 'bg-gray-50 border-light-accent text-light-text',
-        dark: 'bg-gray-800 border-dark-accent text-dark-text',
-        ocean: 'bg-ocean-bg border-ocean-accent text-ocean-text',
-        forest: 'bg-forest-bg border-forest-accent text-forest-text',
-        sunset: 'bg-sunset-bg border-sunset-accent text-sunset-text',
-    };
-
-    const buttonStyles = {
-        light: 'bg-light-accent hover:bg-gray-600 text-light-text',
-        dark: 'bg-dark-accent hover:bg-purple-700 text-dark-text',
-        ocean: 'bg-ocean-accent hover:bg-blue-600 text-ocean-text',
-        forest: 'bg-forest-accent hover:bg-green-700 text-forest-text',
-        sunset: 'bg-sunset-accent hover:bg-orange-600 text-sunset-text',
-    };
-
     return (
         <div className="flex min-h-screen flex-col md:flex-row">
-            <div className="md:w-1/2 h-64 md:h-auto bg-cover bg-center" style={{ backgroundImage: 'url(study2.jpg)' }}>
-                <div className="flex items-center justify-center h-full">
-                    {/*<h1 className="text-4xl md:text-5xl font-bold gradient-text">StudyHub</h1>*/}
-                </div>
-            </div>
+            <div className="md:w-1/2 h-64 md:h-auto bg-cover bg-center" style={{ backgroundImage: 'url(study2.jpg)' }} />
             <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-6">
                 <div className={`w-full max-w-md p-6 md:p-8 rounded-lg shadow-xl ${theme === 'light' ? 'bg-white' : 'bg-opacity-20 bg-gray-900'}`}>
                     <h2 className="text-2xl md:text-3xl font-bold text-center gradient-text mb-6">Login to StudyHub</h2>
@@ -91,7 +73,7 @@ const Login = () => {
                                     onClick={() => setShowPassword(!showPassword)}
                                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-400"
                                 >
-                                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                                    {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
                                 </button>
                             </div>
                         </div>
