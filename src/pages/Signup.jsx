@@ -3,12 +3,11 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Eye, EyeOff } from 'lucide-react';
-import {inputStyles, buttonStyles, iconColors} from '../utils/styles';
+import { inputStyles, buttonStyles, iconColors } from '../utils/styles';
 import { API_BASE_URL } from '../config';
 
 const Signup = () => {
     const [formData, setFormData] = useState({
-        username: '',
         email: '',
         firstName: '',
         lastName: '',
@@ -35,7 +34,6 @@ const Signup = () => {
             return;
         }
         const payload = {
-            username: formData.username,
             email: formData.email,
             firstName: formData.firstName,
             lastName: formData.lastName,
@@ -52,6 +50,18 @@ const Signup = () => {
         }
     };
 
+    const handleReset = () => {
+        setFormData({
+            email: '',
+            firstName: '',
+            lastName: '',
+            role: 'ROLE_STUDENT',
+            password: '',
+            passwordConfirm: '',
+        });
+        setError('');
+    };
+
     return (
         <div className="flex min-h-screen flex-col md:flex-row">
             <div className="md:w-1/2 h-64 md:h-auto bg-cover bg-center" style={{ backgroundImage: 'url(study2.jpg)' }} />
@@ -60,17 +70,31 @@ const Signup = () => {
                     <h2 className="text-2xl md:text-3xl font-bold text-center gradient-text mb-6">Join StudyHub</h2>
                     {error && <p className="text-red-500 text-sm text-center">{error}</p>}
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium">Username</label>
-                            <input
-                                type="text"
-                                name="username"
-                                value={formData.username}
-                                onChange={handleChange}
-                                className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-                                placeholder="Enter your username"
-                                required
-                            />
+                        <div className="flex space-x-4">
+                            <div className="w-1/2">
+                                <label className="block text-sm font-medium">First Name</label>
+                                <input
+                                    type="text"
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+                                    className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                                    placeholder="Enter first name"
+                                    required
+                                />
+                            </div>
+                            <div className="w-1/2">
+                                <label className="block text-sm font-medium">Last Name</label>
+                                <input
+                                    type="text"
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+                                    className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
+                                    placeholder="Enter last name"
+                                    required
+                                />
+                            </div>
                         </div>
                         <div>
                             <label className="block text-sm font-medium">Email</label>
@@ -81,30 +105,6 @@ const Signup = () => {
                                 onChange={handleChange}
                                 className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
                                 placeholder="Enter your email"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium">First Name</label>
-                            <input
-                                type="text"
-                                name="firstName"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-                                placeholder="Enter your first name"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium">Last Name</label>
-                            <input
-                                type="text"
-                                name="lastName"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-                                placeholder="Enter your last name"
                                 required
                             />
                         </div>
@@ -167,12 +167,21 @@ const Signup = () => {
                                 </button>
                             </div>
                         </div>
-                        <button
-                            type="submit"
-                            className={`w-full py-2 px-4 rounded-md ${buttonStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors duration-200`}
-                        >
-                            Register
-                        </button>
+                        <div className="flex space-x-4">
+                            <button
+                                type="submit"
+                                className={`w-1/2 py-2 px-4 rounded-md ${buttonStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors duration-200`}
+                            >
+                                Register
+                            </button>
+                            <button
+                                type="button"
+                                onClick={handleReset}
+                                className={`w-1/2 py-2 px-4 rounded-md ${buttonStyles[theme]} focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200`}
+                            >
+                                Reset
+                            </button>
+                        </div>
                     </form>
                     <p className="text-center text-sm mt-4">
                         Already have an account?{' '}
