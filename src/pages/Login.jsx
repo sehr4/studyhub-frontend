@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Eye, EyeOff } from 'lucide-react';
-import { inputStyles, buttonStyles } from '../utils/styles';
+import { inputStyles, buttonStyles, iconColors } from '../utils/styles';
 import { API_BASE_URL } from '../config';
 
 const Login = () => {
@@ -73,7 +73,9 @@ const Login = () => {
                                     onClick={() => setShowPassword(!showPassword)}
                                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-400"
                                 >
-                                    {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
+                                    <span className="icon-wrapper" style={{'--icon-color': iconColors[theme]}}>
+                                        {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
+                                    </span>
                                 </button>
                             </div>
                         </div>

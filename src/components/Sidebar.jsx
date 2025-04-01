@@ -3,20 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Home, BookOpen, Calendar, Users } from 'lucide-react';
 import { themeConfig } from '../themeConfig';
+import { iconColors } from '../utils/styles';
 
 const Sidebar = () => {
     const navigate = useNavigate();
     const { theme } = useSelector((state) => state.theme);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const { bg, text, border, accentBg } = themeConfig[theme];
-
-    const iconColors = {
-        light: '#111827', // Black for light mode
-        dark: '#f9fafb',  // White for dark mode
-        ocean: '#dbeafe', // Light blue for ocean
-        forest: '#d9f99d', // Pale lime for forest
-        sunset: '#ffedd5', // Soft peach for sunset
-    };
 
     const navItems = [
         { icon: <Home size={24} />, label: 'Dashboard', path: '/dashboard' },

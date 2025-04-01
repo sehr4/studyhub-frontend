@@ -19,8 +19,10 @@
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
+/* I made the icon wrapper to Override Lucide's currentColor and external rules,
+ i had some trouble changing the color of the icons */
 .icon-wrapper svg {
-  stroke: var(--icon-color) !important; /* Override Lucide's currentColor and external rules */
+  stroke: var(--icon-color) !important;
 }
 
 .theme-switcher-login-signup {
