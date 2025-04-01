@@ -17,25 +17,25 @@ export default {
         'gradient-start': '#ea00ff',
         'gradient-end': '#03d5ff',
         // Light: Clean, high contrast
-        'light-bg': '#e5e7eb', // Gray-200
-        'light-text': '#111827', // Gray-900, dark text
-        'light-accent': '#4b5563', // Gray-600, darker buttons
+        'light-bg': '#f9fafb', // Gray-50
+        'light-text': '#374151', // Gray-700, dark text
+        'light-accent': '#6366f1', // Indigo-500, darker buttons
         // Dark: Deep and crisp
-        'dark-bg': '#111827', // Gray-900, darker
-        'dark-text': '#f9fafb', // Gray-50, bright text
-        'dark-accent': '#a78bfa', // Softer purple
+        'dark-bg': '#1f2937', // Gray-800, darker
+        'dark-text': '#e5e7eb', // Gray-200, bright text
+        'dark-accent': '#9333ea', // Purple-600, Softer purple
         // Ocean: Cool and vibrant
-        'ocean-bg': '#1e3a8a', // Deep blue
-        'ocean-text': '#dbeafe', // Light blue
-        'ocean-accent': '#3b82f6', // Bright blue
+        'ocean-bg': '#2563eb', // Blue-600, Deep blue
+        'ocean-text': '#dbeafe', // Blue-100, Light blue
+        'ocean-accent': '#0ea5e9', // Cyan-500, Bright blue
         // Forest: Natural and bold
-        'forest-bg': '#14532d', // Dark green
-        'forest-text': '#d9f99d', // Pale lime
-        'forest-accent': '#65a30d', // Vivid green
+        'forest-bg': '#166534', // Green-700, Dark green
+        'forest-text': '#bbf7d0', // Green-200, Pale lime
+        'forest-accent': '#84cc16', // Lime-500, Vivid green
         // Sunset: Warm and rich
-        'sunset-bg': '#7c2d12', // Terracotta
-        'sunset-text': '#ffedd5', // Soft peach
-        'sunset-accent': '#ea580c', // Bold orange
+        'sunset-bg': '#7c2d12', // Orange-900, Terracotta
+        'sunset-text': '#fed7aa', // Orange-200, Soft peach
+        'sunset-accent': '#ea580c', // Orange-500, Bold orange
       },
     },
   },
