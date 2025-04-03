@@ -105,7 +105,7 @@ const Login = () => {
                                 <label className="block text-sm font-medium">Password</label>
                                 <div className="relative">
                                     <input
-                                        type={showPassword ? 'password' : 'text'}
+                                        type={showPassword ? 'text' : 'password'}
                                         name="password"
                                         value={formData.password}
                                         onChange={handleChange}
@@ -119,7 +119,7 @@ const Login = () => {
                                         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-400"
                                     >
                                          <span className="icon-wrapper" style={{'--icon-color': iconColors[theme]}}>
-                                            {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
+                                            {showPassword ? <Eye size={20}/> : <EyeOff size={20}/>}
                                          </span>
                                     </button>
                                 </div>

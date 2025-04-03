@@ -11,7 +11,7 @@ const Signup = () => {
         email: '',
         firstName: '',
         lastName: '',
-        role: 'ROLE_STUDENT',
+        role: 'STUDENT',
         password: '',
         passwordConfirm: '',
     });
@@ -55,7 +55,7 @@ const Signup = () => {
             email: '',
             firstName: '',
             lastName: '',
-            role: 'ROLE_STUDENT',
+            role: 'STUDENT',
             password: '',
             passwordConfirm: '',
         });
@@ -117,8 +117,8 @@ const Signup = () => {
                                 className={`mt-1 w-full px-4 py-2 rounded-md border ${inputStyles[theme]} focus:outline-none focus:ring-2 focus:ring-purple-500`}
                                 required
                             >
-                                <option value="ROLE_STUDENT">Student</option>
-                                <option value="ROLE_INSTRUCTOR">Instructor</option>
+                                <option value="STUDENT">Student</option>
+                                <option value="INSTRUCTOR">Instructor</option>
                             </select>
                         </div>
                         <div>
@@ -139,7 +139,7 @@ const Signup = () => {
                                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-400"
                                 >
                                     <span className="icon-wrapper" style={{'--icon-color': iconColors[theme]}}>
-                                        {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
+                                        {showPassword ? <Eye size={20}/> : <EyeOff size={20}/>}
                                     </span>
                                 </button>
                             </div>
@@ -162,7 +162,7 @@ const Signup = () => {
                                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-400"
                                 >
                                     <span className="icon-wrapper" style={{'--icon-color': iconColors[theme]}}>
-                                        {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
+                                        {showPassword ? <Eye size={20}/> : <EyeOff size={20}/>}
                                     </span>
                                 </button>
                             </div>
